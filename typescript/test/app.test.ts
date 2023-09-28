@@ -1,6 +1,5 @@
-import 'mocha'
-import { assert } from 'chai'
 
+import { expect, describe, it } from 'vitest'
 import { CartId, Cart } from '../src/models'
 import { applyDiscount } from '../src/app'
 import { SpyStorage } from './stub/storage'
@@ -19,7 +18,7 @@ describe('Functional Refactoring', () => {
       amount: 50
     }
     
-    assert.deepEqual(storage.saved, expected)
+    expect(storage.saved).toEqual(expected)
 
   })
 
@@ -30,7 +29,7 @@ describe('Functional Refactoring', () => {
   
     applyDiscount(cartId, storage)
   
-    assert.isUndefined(storage.saved)
+    expect(storage.saved).toBeUndefined()
 
   })
 
@@ -40,7 +39,7 @@ describe('Functional Refactoring', () => {
   
     applyDiscount(cartId, storage)
   
-    assert.isUndefined(storage.saved)
+    expect(storage.saved).toBeUndefined()
 
   })
 })
