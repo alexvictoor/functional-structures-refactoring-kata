@@ -6,13 +6,14 @@ export type CartId = string
 
 export type CustomerId = string
 
-export type DiscountRule = (Cart) => Amount
 
 export interface Cart {
   id: CartId,
   customerId: CustomerId,
   amount: Amount
 }
+
+export type DiscountRule = (cart: Cart) => Amount
 
 export const MissingCart: Cart = {
   id: "",
